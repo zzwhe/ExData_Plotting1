@@ -1,7 +1,9 @@
 # Download file, unzip, read and assign the file to "datafile".
+# If you can not download the file, you can get the file from the project, and save the file to your computer.
+
 temp <- tempfile()
 download.file("http://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip",temp)
-datafile <- read.table(unz(temp, "household_power_consumption.txt"), header = TRUE, sep = ";")
+datafile <- read.table(unz(temp, "household_power_consumption.txt"), header = TRUE, sep = ";", na.strings = "?")
 unlink(temp)
 
 # Check the file first
@@ -20,6 +22,7 @@ class(thedata$Global_active_power)
 # Change the "factor" class to "numeric".
 thedata$Global_active_power <- as.numeric(as.character(thedata$Global_active_power))
 
+# Check the data class and adjust the class for analysis.
 class(thedata$Sub_metering_1)
 class(thedata$Sub_metering_2)
 class(thedata$Sub_metering_3)
