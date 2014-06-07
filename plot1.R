@@ -26,5 +26,6 @@ thedata$Global_active_power <- as.numeric(as.character(thedata$Global_active_pow
 #Make the plot 1:
 png(filename = "plot1.png", width = 480, height = 480)
 par(mfrow = c(1,1), mar = c(4,4,2,2))
-hist(thedata$Global_active_power, col = "red", xlab = "Global Active Power (kilowatts)")
+hist(thedata$Global_active_power, col = "red", xlab = "Global Active Power (kilowatts)", main = "Global Active Power")
 dev.off()
+
